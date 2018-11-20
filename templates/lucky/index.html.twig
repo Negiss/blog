@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lucky Number{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1>And..</h1>
+
+        Your lucky number is :
+        <ul>
+            <li>{{ luckynumber }} ✅</li>
+        </ul>
+
+        <a href="{{ path('homepage') }}">Back</a>
+    </div>
+
+{% endblock %}

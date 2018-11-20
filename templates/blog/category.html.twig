@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1>All articles in {{ category.name }} :</h1>
+        {% for article in articles %}
+        <h2>{{ article.id }} / {{ article.title }}</h2>
+        <ul>
+            <li>{{ article.content }}</li>
+        </ul>
+        {% endfor %}
+
+        <hr>
+
+        <a href="{{ path('blog_home') }}">
+            <p>Back to blog menu.</p>
+        </a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ slug }}{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1>Article's title : {{ article.title }}</h1>
+        <h2>Category : {{ article.category.name }}</h2>
+        <p>{{ article.content }}</p>
+
+        <hr>
+
+        <a href="{{ path('blog_home') }}">
+            <p>Back to blog menus.</p>
+        </a>
+    </div>
+
+{% endblock %}
