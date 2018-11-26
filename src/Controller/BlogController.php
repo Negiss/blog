@@ -19,7 +19,7 @@ use App\Entity\Article;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("", name="home")
      */
     public function home()
     {
