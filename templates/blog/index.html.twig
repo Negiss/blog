@@ -11,13 +11,22 @@
         <ul>
             <li><a href="{{ path('blog_show', { 'slug': "telltale-games-ferme" }) }}">Telltale Games va fermer ?</a></li>
         </ul>
-        <p>Testing index() method from BlogController to view all articles.</p>
+        <p>See & create articles :</p>
         <ul>
-            <li><a href="{{ path('blog_all_articles') }}">All articles</a></li>
+            <li><a href="{{ path('blog_articles') }}">Click me</a></li>
         </ul>
-        <p>Testing showAllByCategory() method from BlogController to view articles by category.</p>
+        <p>See & create categories :</p>
         <ul>
-            <li><a href="{{ path('blog_category', { 'category' : "games" }) }}">Articles by category</a></li>
+            <li><a href="{{ path('blog_category_all') }}">Or click me</a></li>
+        </ul>
+        <hr>
+        <p>Quête 5 - ParamConverter :</p>
+        <ul>
+            <li><a href="{{ path('category_show', { 'id': '1' }) }}">1</a></li>
+            <li><a href="{{ path('category_show', { 'id': '2' }) }}">2</a></li>
+            <li><a href="{{ path('category_show', { 'id': '3' }) }}">3</a></li>
+            <li><a href="{{ path('category_show', { 'id': '4' }) }}">4</a></li>
+            <li><a href="{{ path('category_show', { 'id': '5' }) }}">5</a></li>
         </ul>
 
         <hr>

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quete 5 - ParamConverter{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <p>For id {{ category.id }} it's the {{ category.name }} category.</p>
+
+        <hr>
+
+        <a href="{{ path('blog_home') }}">
+            <p>Back to blog menu.</p>
+        </a>
+    </div>
+
+{% endblock %}

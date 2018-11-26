@@ -88,11 +88,40 @@ class __TwigTemplate_a0b7712a2cc6b428dc37a356333f2b9457fe999ccac652c02325de4b4fb
 
         // line 8
         echo "
+    <div class=\"example-wrapper\">
+        ";
+        // line 10
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 10, $this->source); })()), 'form_start');
+        echo "
+        ";
+        // line 11
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 11, $this->source); })()), "title", array()), 'row');
+        echo "
+        ";
+        // line 12
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 12, $this->source); })()), "content", array()), 'row');
+        echo "
+        ";
+        // line 13
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 13, $this->source); })()), "category", array()), 'row');
+        echo "
+        <button class=\"btn\">";
+        // line 14
+        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new Twig_Error_Runtime('Variable "button_label" does not exist.', 14, $this->source); })()), "Create")) : ("Create")), "html", null, true);
+        echo "</button>
+        ";
+        // line 15
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 15, $this->source); })()), 'form_end');
+        echo "
+
+        <hr>
+    </div>
+
     <h1>All articles from article's table : </h1>
     ";
-        // line 10
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new Twig_Error_Runtime('Variable "articles" does not exist.', 10, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new Twig_Error_Runtime('Variable "articles" does not exist.', 21, $this->source); })()));
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -107,10 +136,10 @@ class __TwigTemplate_a0b7712a2cc6b428dc37a356333f2b9457fe999ccac652c02325de4b4fb
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 11
+            // line 22
             echo "        <div>
             <h2>";
-            // line 12
+            // line 23
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", array()), "html", null, true);
             echo " / ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", array()), "html", null, true);
@@ -118,7 +147,7 @@ class __TwigTemplate_a0b7712a2cc6b428dc37a356333f2b9457fe999ccac652c02325de4b4fb
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", array()), "name", array()), "html", null, true);
             echo "</h2>
             <p>";
-            // line 13
+            // line 24
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", array()), "html", null, true);
             echo "</p>
         </div>
@@ -135,10 +164,10 @@ class __TwigTemplate_a0b7712a2cc6b428dc37a356333f2b9457fe999ccac652c02325de4b4fb
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 16
+        // line 27
         echo "
     <a href=\"";
-        // line 17
+        // line 28
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_home");
         echo "\">
         <p>Back to blog menu.</p>
@@ -165,7 +194,7 @@ class __TwigTemplate_a0b7712a2cc6b428dc37a356333f2b9457fe999ccac652c02325de4b4fb
 
     public function getDebugInfo()
     {
-        return array (  142 => 17,  139 => 16,  122 => 13,  114 => 12,  111 => 11,  94 => 10,  90 => 8,  81 => 7,  64 => 5,  46 => 3,  15 => 1,);
+        return array (  171 => 28,  168 => 27,  151 => 24,  143 => 23,  140 => 22,  123 => 21,  114 => 15,  110 => 14,  106 => 13,  102 => 12,  98 => 11,  94 => 10,  90 => 8,  81 => 7,  64 => 5,  46 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -177,6 +206,17 @@ class __TwigTemplate_a0b7712a2cc6b428dc37a356333f2b9457fe999ccac652c02325de4b4fb
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
+
+    <div class=\"example-wrapper\">
+        {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.category) }}
+        <button class=\"btn\">{{ button_label|default('Create') }}</button>
+        {{ form_end(form) }}
+
+        <hr>
+    </div>
 
     <h1>All articles from article's table : </h1>
     {% for article in articles %}

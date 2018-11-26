@@ -80,25 +80,49 @@ class __TwigTemplate_3ee47dda8bd5b9c005c34c66b9a7c98532e455e218974bdd64c1a0a2c7c
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_show", array("slug" => "telltale-games-ferme"));
         echo "\">Telltale Games va fermer ?</a></li>
         </ul>
-        <p>Testing index() method from BlogController to view all articles.</p>
+        <p>See & create articles :</p>
         <ul>
             <li><a href=\"";
         // line 16
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_all_articles");
-        echo "\">All articles</a></li>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_articles");
+        echo "\">Click me</a></li>
         </ul>
-        <p>Testing showAllByCategory() method from BlogController to view articles by category.</p>
+        <p>See & create categories :</p>
         <ul>
             <li><a href=\"";
         // line 20
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_category", array("category" => "games"));
-        echo "\">Articles by category</a></li>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_category_all");
+        echo "\">Or click me</a></li>
+        </ul>
+        <hr>
+        <p>Quête 5 - ParamConverter :</p>
+        <ul>
+            <li><a href=\"";
+        // line 25
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", array("id" => "1"));
+        echo "\">1</a></li>
+            <li><a href=\"";
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", array("id" => "2"));
+        echo "\">2</a></li>
+            <li><a href=\"";
+        // line 27
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", array("id" => "3"));
+        echo "\">3</a></li>
+            <li><a href=\"";
+        // line 28
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", array("id" => "4"));
+        echo "\">4</a></li>
+            <li><a href=\"";
+        // line 29
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("category_show", array("id" => "5"));
+        echo "\">5</a></li>
         </ul>
 
         <hr>
 
         <a href=\"";
-        // line 25
+        // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
         echo "\">
             <p>Back to homepage.</p>
@@ -126,7 +150,7 @@ class __TwigTemplate_3ee47dda8bd5b9c005c34c66b9a7c98532e455e218974bdd64c1a0a2c7c
 
     public function getDebugInfo()
     {
-        return array (  102 => 25,  94 => 20,  87 => 16,  80 => 12,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  126 => 34,  118 => 29,  114 => 28,  110 => 27,  106 => 26,  102 => 25,  94 => 20,  87 => 16,  80 => 12,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -144,13 +168,22 @@ class __TwigTemplate_3ee47dda8bd5b9c005c34c66b9a7c98532e455e218974bdd64c1a0a2c7c
         <ul>
             <li><a href=\"{{ path('blog_show', { 'slug': \"telltale-games-ferme\" }) }}\">Telltale Games va fermer ?</a></li>
         </ul>
-        <p>Testing index() method from BlogController to view all articles.</p>
+        <p>See & create articles :</p>
         <ul>
-            <li><a href=\"{{ path('blog_all_articles') }}\">All articles</a></li>
+            <li><a href=\"{{ path('blog_articles') }}\">Click me</a></li>
         </ul>
-        <p>Testing showAllByCategory() method from BlogController to view articles by category.</p>
+        <p>See & create categories :</p>
         <ul>
-            <li><a href=\"{{ path('blog_category', { 'category' : \"games\" }) }}\">Articles by category</a></li>
+            <li><a href=\"{{ path('blog_category_all') }}\">Or click me</a></li>
+        </ul>
+        <hr>
+        <p>Quête 5 - ParamConverter :</p>
+        <ul>
+            <li><a href=\"{{ path('category_show', { 'id': '1' }) }}\">1</a></li>
+            <li><a href=\"{{ path('category_show', { 'id': '2' }) }}\">2</a></li>
+            <li><a href=\"{{ path('category_show', { 'id': '3' }) }}\">3</a></li>
+            <li><a href=\"{{ path('category_show', { 'id': '4' }) }}\">4</a></li>
+            <li><a href=\"{{ path('category_show', { 'id': '5' }) }}\">5</a></li>
         </ul>
 
         <hr>

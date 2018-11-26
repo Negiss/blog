@@ -21,9 +21,12 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
         'blog_home' => array(array(), array('_controller' => 'App\\Controller\\BlogController::home'), array(), array(array('text', '/blog/home')), array(), array()),
-        'blog_all_articles' => array(array(), array('_controller' => 'App\\Controller\\BlogController::index'), array(), array(array('text', '/blog/all-articles')), array(), array()),
+        'blog_articles' => array(array(), array('_controller' => 'App\\Controller\\BlogController::index'), array(), array(array('text', '/blog/articles')), array(), array()),
         'blog_show' => array(array('slug'), array('slug' => null, '_controller' => 'App\\Controller\\BlogController::show'), array('slug' => '[a-z0-9-]+'), array(array('variable', '/', '[a-z0-9-]+', 'slug'), array('text', '/blog/article')), array(), array()),
+        'blog_category_all' => array(array(), array('_controller' => 'App\\Controller\\BlogController::showCategories'), array(), array(array('text', '/blog/category')), array(), array()),
         'blog_category' => array(array('category'), array('_controller' => 'App\\Controller\\BlogController::showByCategory'), array(), array(array('variable', '/', '[^/]++', 'category'), array('text', '/blog/category')), array(), array()),
+        'article_show' => array(array('id'), array('_controller' => 'App\\Controller\\CategoryController::articleById'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/quete5/article')), array(), array()),
+        'category_show' => array(array('id'), array('_controller' => 'App\\Controller\\CategoryController::categoryById'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/quete5/category')), array(), array()),
         'homepage' => array(array(), array('_controller' => 'App\\Controller\\HomeController::index'), array(), array(array('text', '/')), array(), array()),
         'lucky' => array(array(), array('_controller' => 'App\\Controller\\LuckyController::index'), array(), array(array('text', '/lucky/number')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
