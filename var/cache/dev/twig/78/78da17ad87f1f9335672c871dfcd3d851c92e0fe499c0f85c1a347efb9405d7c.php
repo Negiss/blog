@@ -50,7 +50,7 @@ class __TwigTemplate_51d1f0edf545d2bfd73f690af80f9a1239a81cb4961a5b365319efee4df
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Create a category";
+        echo "See or create categories";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -149,7 +149,7 @@ class __TwigTemplate_51d1f0edf545d2bfd73f690af80f9a1239a81cb4961a5b365319efee4df
     {
         return new Twig_Source("{% extends 'base.html.twig' %}
 
-{% block title %}Create a category{% endblock %}
+{% block title %}See or create categories{% endblock %}
 
 {% block body %}
 

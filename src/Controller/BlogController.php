@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Tag;
 use App\Form\CategoryType;
 use App\Form\ArticleType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +20,7 @@ use App\Entity\Article;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("", name="home")
      */
     public function home()
     {
@@ -36,13 +37,7 @@ class BlogController extends AbstractController
     {
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
-            ->findAll();
-
-        if (!$articles) {
-            throw $this->createNotFoundException(
-                'No article found in article\'s table.'
-            );
-        }
+            ->allArticlesWithTags();
 
         $article = new Article();
         $form = $this->createForm(
@@ -68,7 +63,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * Getting a article with a formatted slug for title
+     * Getting an article with a formatted slug for title
      *
      * @param string $slug The slugger
      *
@@ -136,6 +131,8 @@ class BlogController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
             $em->flush();
+
+            return $this->redirectToRoute('blog_category_all');
         }
 
         return $this->render(

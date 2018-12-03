@@ -12,6 +12,7 @@
         {{ form_row(form.title) }}
         {{ form_row(form.content) }}
         {{ form_row(form.category) }}
+        {{ form_row(form.tags) }}
         <button class="btn">{{ button_label|default('Create') }}</button>
         {{ form_end(form) }}
     </div>
@@ -20,11 +21,24 @@
 
     <div style="padding-top: 5%;">
     <h1>All articles : </h1>
+    {% set idprec = '' %}
+
     {% for article in articles %}
-        <div>
-            <h2>{{ loop.index }} / {{ article.title }} - Category : {{ article.category.name }}</h2>
+        {% if idprec!=article.id %}
+
+            <div>
+            <h2>{{ loop.index }} / {{ article.title }} -</h2>
+            <h3>Category : {{ article.name }}</h3>
             <p>{{ article.content }}</p>
-        </div>
+            <h4>Tags :</h4>
+            <ul><li> {% if article.tag!='' %}<a href="{{ path('tag',  { tag : article.tag }) }}"> {{ article.tag }} </a>{% endif %} </li></ul>
+        {% else %}
+            <ul><li> <a href="{{ path('tag',  { tag : article.tag }) }}"> {{ article.tag }} </a> </li></ul>
+
+        {% endif %}
+            </div>
+
+        {% set idprec = article.id %}
     {% endfor %}
 
     <a href="{{ path('blog_home') }}">

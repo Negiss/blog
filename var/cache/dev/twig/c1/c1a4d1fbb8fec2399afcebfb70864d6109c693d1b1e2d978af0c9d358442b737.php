@@ -50,7 +50,7 @@ class __TwigTemplate_6657b3a001a092a8e7810cc5f1974676faa187943693f94f6e3b2d9ce75
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Quete 5 article by ID";
+        echo "Quest 10 - ManyToMany";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -71,15 +71,36 @@ class __TwigTemplate_6657b3a001a092a8e7810cc5f1974676faa187943693f94f6e3b2d9ce75
         // line 6
         echo "
     <div class=\"example-wrapper\">
-        ";
+        <h1>All articles for the \"";
         // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new Twig_Error_Runtime('Variable "category" does not exist.', 8, $this->source); })()), "name", array()), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["tag"]) || array_key_exists("tag", $context) ? $context["tag"] : (function () { throw new Twig_Error_Runtime('Variable "tag" does not exist.', 8, $this->source); })()), "name", array()), "html", null, true);
+        echo "\" tag :</h1>
+        ";
+        // line 9
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new Twig_Error_Runtime('Variable "articles" does not exist.', 9, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 10
+            echo "            <h2>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", array()), "html", null, true);
+            echo "</h2>
+            <ul>
+                <li>";
+            // line 12
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", array()), "html", null, true);
+            echo "</li>
+            </ul>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 15
         echo "
-
         <hr>
 
         <a href=\"";
-        // line 12
+        // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("blog_home");
         echo "\">
             <p>Back to blog menu.</p>
@@ -107,19 +128,25 @@ class __TwigTemplate_6657b3a001a092a8e7810cc5f1974676faa187943693f94f6e3b2d9ce75
 
     public function getDebugInfo()
     {
-        return array (  83 => 12,  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  104 => 18,  99 => 15,  90 => 12,  84 => 10,  80 => 9,  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends 'base.html.twig' %}
 
-{% block title %}Quete 5 article by ID{% endblock %}
+{% block title %}Quest 10 - ManyToMany{% endblock %}
 
 {% block body %}
 
     <div class=\"example-wrapper\">
-        {{ category.name }}
+        <h1>All articles for the \"{{ tag.name }}\" tag :</h1>
+        {% for article in articles %}
+            <h2>{{ article.title }}</h2>
+            <ul>
+                <li>{{ article.content }}</li>
+            </ul>
+        {% endfor %}
 
         <hr>
 

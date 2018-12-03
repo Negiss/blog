@@ -19,6 +19,26 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function allArticlesWithTags()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = 'SELECT article.id, article.title, article.content, category.name, tag.tag
+                FROM article
+                LEFT OUTER JOIN tag_article
+                ON article.id = tag_article.article_id
+                LEFT OUTER JOIN tag
+                ON tag_article.tag_id = tag.id
+                JOIN category
+                ON article.category_id = category.id';
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+    }
+
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */

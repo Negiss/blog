@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quest 10 - ManyToMany{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1>All articles for the "{{ tag.name }}" tag :</h1>
+            <ul>
+                {% for article in articles %}
+                <li style="font-size: 25px"><a href="{{ path('article_show',  { id : article.id }) }}">{{ article.title }}</li>
+                {% endfor %}
+            </ul>
+
+        <hr>
+
+        <a href="{{ path('blog_home') }}">
+            <p>Back to blog menu.</p>
+        </a>
+    </div>
+
+{% endblock %}
