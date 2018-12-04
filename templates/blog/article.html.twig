@@ -31,9 +31,9 @@
             <h3>Category : {{ article.name }}</h3>
             <p>{{ article.content }}</p>
             <h4>Tags :</h4>
-            <ul><li> {% if article.tag!='' %}<a href="{{ path('tag',  { tag : article.tag }) }}"> {{ article.tag }} </a>{% endif %} </li></ul>
+            <ul><li> {{ article.tag }} </li></ul>
         {% else %}
-            <ul><li> <a href="{{ path('tag',  { tag : article.tag }) }}"> {{ article.tag }} </a> </li></ul>
+            <ul><li> {{ article.tag }} </li></ul>
 
         {% endif %}
             </div>
