@@ -23,7 +23,7 @@ class ArticleRepository extends ServiceEntityRepository
     {
         $conn = $this->getEntityManager()->getConnection();
 
-        $sql = 'SELECT article.id, article.title, article.content, category.name, tag.tag
+        $sql = 'SELECT article.id, article.title, article.content, category.name, tag.name AS tags
                 FROM article
                 LEFT OUTER JOIN tag_article
                 ON article.id = tag_article.article_id

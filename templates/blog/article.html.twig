@@ -5,7 +5,6 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-
     <div class="example-wrapper">
         <h1>Create an article</h1>
         {{ form_start(form) }}
@@ -19,31 +18,37 @@
 
     <hr>
 
-    <div style="padding-top: 5%;">
-    <h1>All articles : </h1>
-    {% set idprec = '' %}
+    <div class="pt-5 pl-5">
 
-    {% for article in articles %}
-        {% if idprec!=article.id %}
+        <h1>All articles : </h1>
+        {% set idprec = '' %}
 
-            <div>
-            <h2>{{ loop.index }} / {{ article.title }} -</h2>
-            <h3>Category : {{ article.name }}</h3>
-            <p>{{ article.content }}</p>
-            <h4>Tags :</h4>
-            <ul><li> {{ article.tag }} </li></ul>
-        {% else %}
-            <ul><li> {{ article.tag }} </li></ul>
+        {% for article in articles %}
 
-        {% endif %}
-            </div>
+            {% if idprec!=article.id %}
+                {% if idprec!=article.id and idprec!='' %} </p></div> {% endif %}
 
-        {% set idprec = article.id %}
-    {% endfor %}
+                <h2> {{ loop.index }} | {{ article.title }} -</h2>
+                <h3>Category : {{ article.name }}</h3>
+                <p>{{ article.content }}</p>
+                <div>
+                <p> Tags :
+                {% if article.tags=='' %}
+                    There's no tags for this article
+                {% else %}
+                    <a href="{{ path('tag',  { tag : article.tags }) }}"> {{ article.tags }} </a>
+                {% endif %}
 
-    <a href="{{ path('blog_home') }}">
-        <p>Back to blog menu.</p>
-    </a>
+            {% else %}
+                |<a href="{{ path('tag',  { tag : article.tags }) }}"> {{ article.tags }} </a>
+            {% endif %}
+
+            {% set idprec = article.id %}
+        {% endfor %}
+
+        <a href="{{ path('blog_home') }}">
+            <p>Back to blog menu.</p>
+        </a>
     </div>
 
 {% endblock %}

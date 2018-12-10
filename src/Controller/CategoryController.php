@@ -1,75 +1,90 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wilder
- * Date: 26/11/18
- * Time: 15:33
- */
 
 namespace App\Controller;
 
-use App\Entity\Tag;
-use App\Entity\Article;
 use App\Entity\Category;
+use App\Form\Category1Type;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/category")
+ */
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/article/{id}", name="article_show")
+     * @Route("/", name="category_index", methods="GET")
      */
-    public function articleById(Article $article) :Response
+    public function index(CategoryRepository $categoryRepository): Response
     {
-        $tags = $article->getTags();
-
-        return $this->render(
-            'blog/articleById.html.twig',
-            [
-                'tags' => $tags,
-                'article' => $article,
-            ]);
+        return $this->render('category/index.html.twig', ['categories' => $categoryRepository->findAll()]);
     }
 
     /**
-     * @Route("/category/{id}", name="category_show")
+     * @Route("/new", name="category_new", methods="GET|POST")
      */
-    public function categoryById(Category $category) :Response
+    public function new(Request $request): Response
     {
-        return $this->render('blog/quete5category.html.twig', ['category'=>$category]);
+        $category = new Category();
+        $form = $this->createForm(Category1Type::class, $category);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
+
+            return $this->redirectToRoute('category_index');
+        }
+
+        return $this->render('category/new.html.twig', [
+            'category' => $category,
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
-     * @param string $tag
-     * @return Response
-     * @Route("/blog/tag/{tag}", name="tag")
+     * @Route("/{id}", name="category_show", methods="GET")
      */
-    public function showByTag(string $tag) : Response
+    public function show(Category $category): Response
     {
-        if (!$tag) {
-            throw $this
-                ->createNotFoundException('Nothing has been sent');
+        return $this->render('category/show.html.twig', ['category' => $category]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="category_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Category $category): Response
+    {
+        $form = $this->createForm(Category1Type::class, $category);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('category_index', ['id' => $category->getId()]);
         }
 
-        $tag = $this->getDoctrine()
-            ->getRepository(Tag::class)
-            ->findOneByName($tag);
+        return $this->render('category/edit.html.twig', [
+            'category' => $category,
+            'form' => $form->createView(),
+        ]);
+    }
 
-        if (!$tag) {
-            throw $this->createNotFoundException(
-                'No tag with '.$tag.' name, has been found'
-            );
+    /**
+     * @Route("/{id}", name="category_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Category $category): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($category);
+            $em->flush();
         }
 
-        $articles = $tag->getArticles();
-
-        return $this->render(
-            'blog/articlesByTag.twig',
-            [
-                'tag' => $tag,
-                'articles' => $articles,
-            ]
-        );
+        return $this->redirectToRoute('category_index');
     }
 }

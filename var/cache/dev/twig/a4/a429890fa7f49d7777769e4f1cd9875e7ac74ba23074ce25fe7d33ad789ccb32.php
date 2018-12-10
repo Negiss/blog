@@ -34,14 +34,18 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 <html>
     <head>
         <meta charset=\"UTF-8\">
+
+        <!-- Bootstrap CSS -->
+        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">
+
         <title>";
-        // line 5
+        // line 9
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
         ";
-        // line 6
+        // line 10
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 7
+        // line 11
         echo "    </head>
     <body>
     <style>
@@ -50,13 +54,17 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
         hr {margin-top: 10%;}
     </style>
         ";
-        // line 14
+        // line 18
         $this->displayBlock('body', $context, $blocks);
-        // line 15
+        // line 19
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 16
-        echo "    </body>
+        // line 20
+        echo "    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
+    </body>
 </html>
 ";
         
@@ -67,7 +75,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 5
+    // line 9
     public function block_title($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -85,7 +93,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 6
+    // line 10
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -102,7 +110,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 14
+    // line 18
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -119,7 +127,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 15
+    // line 19
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -143,7 +151,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     public function getDebugInfo()
     {
-        return array (  123 => 15,  106 => 14,  89 => 6,  71 => 5,  59 => 16,  56 => 15,  54 => 14,  45 => 7,  43 => 6,  39 => 5,  33 => 1,);
+        return array (  131 => 19,  114 => 18,  97 => 10,  79 => 9,  63 => 20,  60 => 19,  58 => 18,  49 => 11,  47 => 10,  43 => 9,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -152,6 +160,10 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 <html>
     <head>
         <meta charset=\"UTF-8\">
+
+        <!-- Bootstrap CSS -->
+        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">
+
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
@@ -163,6 +175,10 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
     </style>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
     </body>
 </html>
 ", "base.html.twig", "/home/wilder/PhpstormProjects/SymfonyBlog/blog/templates/base.html.twig");

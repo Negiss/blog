@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Tag;
 use App\Form\CategoryType;
 use App\Form\ArticleType;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +34,7 @@ class BlogController extends AbstractController
      * @Route("/articles", name="articles")
      * @return Response A response instance
      */
-    public function index(Request $request) : Response
+    public function index(Request $request, ObjectManager $manager) : Response
     {
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
@@ -48,9 +49,8 @@ class BlogController extends AbstractController
 
         if ($form->isSubmitted())
         {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
+            $manager->persist($article);
+            $manager->flush();
 
             return $this->redirectToRoute('blog_articles');
         }

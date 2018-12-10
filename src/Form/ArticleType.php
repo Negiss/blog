@@ -21,13 +21,7 @@ class ArticleType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
-            ])
-            ->add('tags', CollectionType::class, array(
-                'entry_type' => Tag::class,
-                'entry_options' => array(
-                    'attr' => array('class' => 'name'),
-                ),
-            ));
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
